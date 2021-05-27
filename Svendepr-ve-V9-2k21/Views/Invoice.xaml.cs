@@ -50,22 +50,42 @@ namespace Svendepr_ve_V9_2k21.Views
 
         }
 
-        private void UnpayedOnlyCheck_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UnpayedOnlyCheck_Unchecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ClearTextSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
         private void PaySearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PrintStandartService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelAddService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContainPriceCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContainPriceCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrintGiroService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UnpayedCheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -83,5 +83,92 @@
         <GroupBox Margin="10,143,10,10" Grid.RowSpan="3" Grid.ColumnSpan="3">
             <DataGrid Name="ProductGrid" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserAddRows="True" CurrentCellChanged="ProductGrid_CurrentCellChanged" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" />
         </GroupBox>
+
+        <materialDesign:DialogHost 
+            Name="AddProductDialog" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            IsOpen="False" 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="3" 
+            DialogTheme="Dark" 
+            Margin="0,0,0,-14">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Width="250" Height="350">
+                    <Grid Width="250" Height="350">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="0,-50,0,0" Stretch="Uniform">
+                            <Label Content="Opret Produkt" FontSize="8"/>
+                        </Viewbox>
+
+                        <GroupBox Header="Produkt" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="10,80,10,50">
+                            <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                                <TextBox 
+                                    Name="ProductNameTextBox"
+                                    TabIndex="0"
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    TextWrapping="Wrap" 
+                                    materialDesign:HintAssist.Hint="Produkt navn" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Top"
+                                    Width="166"/>
+                                <TextBox 
+                                    Name="ProductPriceTextBox"
+                                    TabIndex="1"
+                                    HorizontalAlignment="Center" 
+                                    Height="36"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TextWrapping="Wrap"
+                                    Text="00,00"
+                                    materialDesign:HintAssist.Hint="Produkt Pris (Fx: 149,95)" 
+                                    LostFocus="ProductPriceTextBox_LostFocus"
+                                    VerticalAlignment="Top"
+                                    Width="166"/>
+                                <TextBox
+                                    Name="ProductDescriptionTextBox"
+                                    TabIndex="2"
+                                    HorizontalAlignment="Center"
+                                    Height="36"
+                                    TextWrapping="Wrap"
+                                    materialDesign:HintAssist.Hint="Produkt Beskrivelse"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Top"
+                                    Width="166"/>
+
+                            </StackPanel>
+                        </GroupBox>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,70,0,0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                            <Button 
+                                x:Name="FinalAddProduct" 
+                                Margin="10,0,0,0"
+                                Width="100" 
+                                Content="Opret"
+                                Click="FinalAddProduct_Click"/>
+                            <Button
+                                x:Name="CancelAddProduct" 
+                                Margin="30,0,0,0"
+                                Width="100" 
+                                Content="Anuller" 
+                                Click="CancelAddProduct_Click"/>
+                        </StackPanel>
+
+                    </Grid>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Page>

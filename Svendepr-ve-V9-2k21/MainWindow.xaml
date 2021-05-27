@@ -56,7 +56,6 @@
         </Grid.Resources>
 
         <metro:HamburgerMenu x:Name="Menu"
-                             IsEnabled="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=IsLicenseVerified}"
                              Grid.Column="0"
                              Grid.ColumnSpan="3"
                              Grid.Row="0"
@@ -98,6 +97,12 @@
                         </metro:HamburgerMenuIconItem.Tag>
                     </metro:HamburgerMenuIconItem>
 
+                    <metro:HamburgerMenuIconItem Icon="{materialDesign:PackIcon Kind=RoadVariant}" Label="Ruteplan">
+                        <metro:HamburgerMenuIconItem.Tag>
+                            <views:Routes />
+                        </metro:HamburgerMenuIconItem.Tag>
+                    </metro:HamburgerMenuIconItem>
+
                     <metro:HamburgerMenuIconItem Icon="{materialDesign:PackIcon Kind=CheckboxesBlankOutline}" Label="Produkter">
                         <metro:HamburgerMenuIconItem.Tag>
                             <views:Products />
@@ -106,6 +111,18 @@
 
                 </metro:HamburgerMenuItemCollection>
             </metro:HamburgerMenu.ItemsSource>
+
+            <metro:HamburgerMenu.OptionsItemsSource>
+                <metro:HamburgerMenuItemCollection>
+
+                    <metro:HamburgerMenuIconItem Icon="{materialDesign:PackIcon Kind=SettingsOutline}" Label="Indstillinger">
+                        <metro:HamburgerMenuIconItem.Tag>
+                            <views:Settings />
+                        </metro:HamburgerMenuIconItem.Tag>
+                    </metro:HamburgerMenuIconItem>
+
+                </metro:HamburgerMenuItemCollection>
+            </metro:HamburgerMenu.OptionsItemsSource>
         </metro:HamburgerMenu>
     </Grid>
     </metro:MetroWindow>

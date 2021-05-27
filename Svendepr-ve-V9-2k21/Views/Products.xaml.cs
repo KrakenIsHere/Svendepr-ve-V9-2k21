@@ -22,7 +22,7 @@ namespace Svendepr_ve_V9_2k21.Views
 
         private void OpenAddProductDialogButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AddProductDialog.IsOpen = true;
         }
 
         private void ReloadButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +31,21 @@ namespace Svendepr_ve_V9_2k21.Views
         }
 
         private void ClearTextSearch_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CancelAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductDialog.IsOpen = false;
+        }
+
+        private void FinalAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductDialog.IsOpen = false;
+        }
+
+        private void ProductPriceTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
 
         }

@@ -163,5 +163,509 @@
                 Margin="0,0,0,-5" 
                 Grid.Row="2"/>
         </GroupBox>
+
+        <materialDesign:DialogHost 
+            Name="AddCustomerDialog" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            IsOpen="False" 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="3" 
+            DialogTheme="Dark" 
+            Margin="0,0,0,-14">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Width="550" Height="500">
+                    <Grid Width="550" Height="500">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="0,-50,0,0" Stretch="Uniform">
+                            <Label 
+                                Content="Opret Kunde" 
+                                FontSize="8"/>
+                        </Viewbox>
+
+                        <GroupBox Header="Kunde" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="10,130,10,-100">
+                            <StackPanel Orientation="Horizontal">
+
+                                <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                                    <TextBox 
+                                        Name="NewCustomersFirstname"
+                                        TabIndex="0"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Fornavn (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <TextBox 
+                                        Name="NewCustomersLastname"
+                                        TabIndex="1"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Efternavn (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <TextBox 
+                                        Name="NewCustomersAdress" 
+                                        TabIndex="2"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Adresse" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <ComboBox 
+                                        Name="NewCustomersCity"
+                                        SelectionChanged="NewCustomersCity_SelectionChanged"
+                                        TabIndex="3"
+                                        LostFocus="NewCustomersCity_LostFocus" 
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="By" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166" 
+                                        IsEditable="True"/>
+                                    <ComboBox 
+                                        Name="NewCustomersZipCode" 
+                                        SelectionChanged="NewCustomersZipCode_SelectionChanged"
+                                        TabIndex="4"
+                                        LostFocus="NewCustomersZipCode_LostFocus" 
+                                        PreviewTextInput="NewCustomersZipCode_PreviewTextInput" 
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="Post nummer" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"
+                                        IsEditable="True"/>
+                                    <TextBox 
+                                        Name="NewCustomersMail" 
+                                        TabIndex="5"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="E-Mail (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top"
+                                        Width="166"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                                    <TextBox 
+                                        Name="NewCustomersMobile"
+                                        TabIndex="6"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Mobil nummer (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <TextBox 
+                                        Name="NewCustomersHome" 
+                                        TabIndex="7"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Hjemme nummer (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <TextBox 
+                                        Name="NewCustomersServices" 
+                                        TabIndex="8"
+                                        MaxLength="2" 
+                                        PreviewTextInput="NewCustomersServices_PreviewTextInput" 
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Fejninger (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="166"/>
+                                    <TextBox 
+                                        Name="NewCustomersComment" 
+                                        TabIndex="9"
+                                        HorizontalAlignment="Center" 
+                                        Height="100" 
+                                        VerticalScrollBarVisibility="Auto" 
+                                        Margin="0,10,0,0" 
+                                        Padding="2,0,2,0" 
+                                        TextWrapping="Wrap" 
+                                        materialDesign:HintAssist.Hint="Kommentar (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                        VerticalAlignment="Top"
+                                        Width="166"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                                    <ComboBox 
+                                        Name="NewCustomersMonth1" 
+                                        TabIndex="10"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="1. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top"
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt" 
+                                            IsSelected="True"/>
+                                    </ComboBox>
+
+                                    <ComboBox 
+                                        Name="NewCustomersMonth2" 
+                                        TabIndex="11"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="2. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt" 
+                                            IsSelected="True"/>
+                                    </ComboBox>
+
+                                    <ComboBox 
+                                        Name="NewCustomersMonth3" 
+                                        TabIndex="12"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="3. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt" 
+                                            IsSelected="True"/>
+                                    </ComboBox>
+
+                                    <ComboBox 
+                                        Name="NewCustomersMonth4" 
+                                        TabIndex="13"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="4. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top"
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt" 
+                                            IsSelected="True"/>
+                                    </ComboBox>
+
+                                    <ComboBox 
+                                        Name="NewCustomersMonth5" 
+                                        TabIndex="14"
+                                        HorizontalAlignment="Center" 
+                                        Height="37" 
+                                        materialDesign:HintAssist.Hint="5. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        VerticalAlignment="Top" 
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt"
+                                            IsSelected="True"/>
+                                    </ComboBox>
+
+                                    <ComboBox 
+                                        Name="NewCustomersMonth6" 
+                                        TabIndex="15"
+                                        HorizontalAlignment="Center" 
+                                        Height="37"
+                                        materialDesign:HintAssist.Hint="6. Måned (Valgfri)" 
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                        VerticalAlignment="Top"
+                                        Width="140">
+                                        <ComboBoxItem 
+                                            Content="Ingen Valgt"
+                                            IsSelected="True"/>
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,80,0,0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                            <Button 
+                                x:Name="FinalAddCustomer" 
+                                Margin="10,30,0,0" 
+                                Width="100" 
+                                Content="Opret" 
+                                Click="FinalAddCustomer_Click"/>
+                            <Button 
+                                x:Name="CancelAddCustomer" 
+                                Margin="330,30,0,0"
+                                Width="100" 
+                                Content="Anuller"
+                                Click="CancelAddCustomer_Click"/>
+                        </StackPanel>
+
+                    </Grid>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <materialDesign:DialogHost 
+            Name="AddServiceDialog" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            IsOpen="False" 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="3" 
+            DialogTheme="Dark" 
+            Margin="0,0,0,-14">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Width="750" Height="500">
+                    <Grid Width="750" Height="500">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="0,-50,0,0" Stretch="Uniform">
+                            <Label Content="Opret Fejning" FontSize="8"/>
+                        </Viewbox>
+
+                        <GroupBox Header="Print" ToolTip="Denne boks bliver kun brugt ved tryk på 'Opret og Print'" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,130,0,-100">
+                            <StackPanel Orientation="Vertical" Margin="0,30,0,0">
+                                <TextBox 
+                                    Name="PriceTextBox" 
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    TextWrapping="Wrap" 
+                                    Text="0.00" 
+                                    materialDesign:HintAssist.Hint="Beløb (Fx: 149.95)" 
+                                    LostFocus="PriceTextBox_LostFocus" 
+                                    VerticalAlignment="Top" 
+                                    Width="166"/>
+                                <CheckBox 
+                                    Name="ContainPriceCheckBox" 
+                                    Checked="ContainPriceCheckBox_Checked" 
+                                    Unchecked="ContainPriceCheckBox_Unchecked" 
+                                    Content="Includér pris i print" 
+                                    Margin="30,10,0,0"/>
+                                <CheckBox 
+                                    Name="TaxWithPriceCheckBox" 
+                                    Content="Pris er med moms" 
+                                    Margin="30,-1,0,0" 
+                                    IsEnabled="False"/>
+                                <DatePicker 
+                                    Name="PayDateSelect" 
+                                    materialDesign:HintAssist.Hint="Betalings Dato" 
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Top" 
+                                    Height="36" 
+                                    Width="166" 
+                                    FirstDayOfWeek="Monday"/>
+                                <CheckBox 
+                                    Name="ContainPayDateCheckBox" 
+                                    Content="Includér dato i print" 
+                                    Margin="30,10,0,0"/>
+
+
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Produkter" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,130,0,-100">
+                            <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                                <ComboBox 
+                                    x:Name="ProductCombo">
+
+                                </ComboBox>
+
+                                <Button 
+                                    Name="AddProduct" 
+                                    Margin="-120,10,0,0" 
+                                    Width="100" 
+                                    Content="Tilføj"
+                                    ToolTip="Tilføj valgte produkt fra den ovenstående liste til nedenstående liste"
+                                    Click="AddProduct_Click"></Button>
+
+                                <Button 
+                                    Name="RemoveProduct" 
+                                    Margin="120,-32,0,0" 
+                                    Width="100" 
+                                    Content="Fjern"
+                                    ToolTip="Fjen et product fra nedenstående liste"
+                                    Click="RemoveProduct_Click"></Button>
+
+                                <CheckBox x:Name="IncludeProductsCheckBox" Content="Includér produkter i print" Margin="0,5,0,2"/>
+
+                                <Border BorderThickness="1,0,1,1" BorderBrush="Gray" Margin="0,10,0,0">
+                                    <ListView 
+                                        Height="140"
+                                        x:Name="ProductList"
+                                        ToolTip="Priser er uden skat (moms)"
+                                        FontSize="10">
+                                        <ListView.View>
+                                            <GridView x:Name="ProductGrid">
+                                                <GridViewColumn
+                                                    DisplayMemberBinding="{Binding ID}"
+                                                    Header="ID" Width="50"/>
+                                                <GridViewColumn
+                                                    DisplayMemberBinding="{Binding Name}"
+                                                    Header="Navn" Width="110"/>
+                                                <GridViewColumn
+                                                    Header="Pris">
+
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <TextBox x:Name="ListViewPriceTextBox" Text="{Binding Price}" LostFocus="ListViewPriceTextBox_LostFocus"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn
+                                                    DisplayMemberBinding="{Binding Description}"
+                                                    Header="Beskrivelse" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Border>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Fejning" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,130,0,-100">
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBox 
+                                    Name="NewServiceID" 
+                                    IsReadOnly="True" 
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    TextWrapping="Wrap" 
+                                    materialDesign:HintAssist.Hint="Nye Fejnings ID" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Top" Width="166"/>
+                                <TextBox 
+                                    Name="CustomerID" 
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    TextWrapping="Wrap" 
+                                    materialDesign:HintAssist.Hint="Kunde ID" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Top" 
+                                    Width="166"/>
+                                <DatePicker 
+                                    Name="DateSelect" 
+                                    materialDesign:HintAssist.Hint="Vælg Dato" 
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Top" 
+                                    Height="36" 
+                                    Width="166" 
+                                    FirstDayOfWeek="Monday"/>
+                                <ComboBox 
+                                    Name="PaymentMethod" 
+                                    HorizontalAlignment="Center" 
+                                    Margin="0,10,0,0"
+                                    materialDesign:HintAssist.Hint="Betalings Form" 
+                                    VerticalAlignment="Top" 
+                                    Width="166">
+                                    <ComboBoxItem 
+                                        Content="Ikke Betalt" 
+                                        IsSelected="True"/>
+                                </ComboBox>
+
+                                <ComboBox 
+                                    Name="InvoiceMethod" 
+                                    HorizontalAlignment="Center" 
+                                    Margin="0,10,85,0" 
+                                    VerticalAlignment="Top" 
+                                    Width="80" 
+                                    SelectedIndex="0">
+                                </ComboBox>
+                                <TextBox 
+                                    Name="Times" 
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Margin="86,-36,0,0" 
+                                    TextWrapping="Wrap" 
+                                    materialDesign:HintAssist.Hint="Gang Fejet" 
+                                    VerticalAlignment="Top" 
+                                    Width="80"/>
+                                <TextBox 
+                                    Name="InvoiceNum" 
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    HorizontalAlignment="Center" 
+                                    Height="36" 
+                                    Margin="0,2,0,0" 
+                                    TextWrapping="Wrap" 
+                                    materialDesign:HintAssist.Hint="Nummer" 
+                                    VerticalAlignment="Top" 
+                                    Width="166"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,80,0,0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                            <Button 
+                                x:Name="FinalAddAndPrintGiroService" 
+                                Margin="10,30,0,0" 
+                                Width="175" 
+                                Content="Opret og Print Giro A5" 
+                                Click="FinalAddAndPrintGiroService_Click"/>
+                            <Button 
+                                x:Name="FinalAddAndPrintStandartService" 
+                                Margin="10,30,0,0" 
+                                Width="195" 
+                                Content="Opret og Print Faktura A4" 
+                                Click="FinalAddAndPrintStandartService_Click"/>
+                            <ComboBox 
+                                Name="InvoiceDesignCombo" 
+                                HorizontalAlignment="Center" 
+                                materialDesign:HintAssist.Hint="Vælg Design" 
+                                Margin="10,40,0,0" 
+                                VerticalAlignment="Top"
+                                Width="120" 
+                                SelectedIndex="0">
+                                <ComboBoxItem 
+                                    Content="Ingen valgt" 
+                                    IsSelected="True"/>
+                            </ComboBox>
+                            <Button 
+                                x:Name="FinalAddService" 
+                                Margin="10,30,0,0" 
+                                Width="100" 
+                                Content="Opret" 
+                                Click="FinalAddService_Click"/>
+                            <Button 
+                                x:Name="CancelAddService" 
+                                Margin="10,30,0,0" 
+                                Width="100" 
+                                Content="Anuller" 
+                                Click="CancelAddService_Click"/>
+                        </StackPanel>
+
+                    </Grid>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        
     </Grid>
 </Page>
