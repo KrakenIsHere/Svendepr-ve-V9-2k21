@@ -8,15 +8,89 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Invoice Template\Designs\Design 00.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 01.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 02.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 03.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 04.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 05.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 06.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 07.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 08.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 09.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 10.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 11.png" />
+    <None Remove="Assets\Invoice Template\Designs\Design 12.png" />
+    <None Remove="Assets\Køreseddel Template.png" />
+    <None Remove="Assets\Turseddel Template.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Invoice Template\Designs\Design 00.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 06.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 07.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 08.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 09.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Invoice Template\Designs\Design 12.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Køreseddel Template.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Turseddel Template.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="1.6.5" />
     <PackageReference Include="MaterialDesignColors" Version="1.2.0" />
     <PackageReference Include="MaterialDesignThemes" Version="2.6.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
     <PackageReference Include="System.Management" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PyroSquidUniLib\PyroSquidUniLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Windows.Forms.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

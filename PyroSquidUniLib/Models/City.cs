@@ -9,10 +9,9 @@ namespace PyroSquidUniLib.Models
 {
     public class City
     {
-        public int value { get; set; }
         public int Postnr { get; set; }
         public string By { get; set; }
-
+        public int id { get; set; }
         public static City[] CreateFromJson(string json)
         {
             return JsonConvert.DeserializeObject<City[]>(json);

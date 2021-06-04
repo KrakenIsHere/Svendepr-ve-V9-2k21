@@ -20,6 +20,13 @@
         WindowStartupLocation="CenterScreen"
         Height="900" 
         Width="1600">
+        
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands>
+            <Button Content="{materialDesign:PackIcon FileDocument}" 
+                    Click="EULA" />
+        </metro:WindowCommands>
+    </metro:MetroWindow.RightWindowCommands>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -110,6 +117,7 @@
                     </metro:HamburgerMenuIconItem>
 
                 </metro:HamburgerMenuItemCollection>
+
             </metro:HamburgerMenu.ItemsSource>
 
             <metro:HamburgerMenu.OptionsItemsSource>
@@ -125,4 +133,4 @@
             </metro:HamburgerMenu.OptionsItemsSource>
         </metro:HamburgerMenu>
     </Grid>
-    </metro:MetroWindow>
+</metro:MetroWindow>

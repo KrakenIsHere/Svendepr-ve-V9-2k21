@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,70 +14,113 @@ namespace PyroSquidUniLib.Database
 {
     public class ApiHelper
     {
-        public static async void PostDataTest2()
+        public static async Task<bool> PutDataAsync(string table, string values)
         {
-            var request = WebRequest.Create("link");
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            using (var writer = new StreamWriter(request.GetRequestStream()))
+            try
             {
-                writer.Write("Values");
+                var bytes = Encoding.ASCII.GetBytes(values);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format($"https://api.pyrocorestudios.dk/girozillabackend/v1/Edit/{table}"));
+                request.Method = "PUT";
+                request.ContentType = "application/x-www-form-urlencoded";
+                using (var requestStream = request.GetRequestStream())
+                {
+                    await requestStream.WriteAsync(bytes, 0, bytes.Length);
+                }
+                
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
             }
         }
 
-        public static async Task<string> PostDataTest3Async(string uri, string data)
+        public static async Task<bool> JPutDataAsync(string table, string values)
         {
-            byte[] dataBytes = Encoding.UTF8.GetBytes(data);
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            request.ContentLength = dataBytes.Length;
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.Method = "POST";
-
-            using (Stream requestBody = request.GetRequestStream())
+            try
             {
-                await requestBody.WriteAsync(dataBytes, 0, dataBytes.Length);
+                using (var httpClient = new HttpClient())
+                {
+                    using (var request = new HttpRequestMessage(new HttpMethod("PUT"), $"https://api.pyrocorestudios.dk/girozillabackend/v1/Edit/{table}"))
+                    {
+                        request.Headers.TryAddWithoutValidation("accept", "application/json");
+
+                        request.Content = new StringContent(values);
+                        request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+                        var response = await httpClient.SendAsync(request);
+                    }
+                }
+                return true;
             }
-
-            using (HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            catch (Exception ex)
             {
-                return await reader.ReadToEndAsync();
+                Debug.WriteLine(ex);
+                return false;
             }
         }
 
-        public static async Task EditDataAsync(string extention, string values, string method = "PUT")
+        public static async Task<bool> PostDataAsync(string table, string values)
         {
-            var bytes = Encoding.ASCII.GetBytes(values);
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format($"http://87.61.88.75:21875/girozillabackend/api/v1/{extention}"));
-            request.Method = method;
-            request.ContentType = "application/x-www-form-urlencoded";
-            using (var requestStream = request.GetRequestStream())
+            try
             {
-                await requestStream.WriteAsync(bytes, 0, bytes.Length);
+                var bytes = Encoding.ASCII.GetBytes(values);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format($"https://api.pyrocorestudios.dk/girozillabackend/v1/Add/{table}"));
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                using (var requestStream = request.GetRequestStream())
+                {
+                    await requestStream.WriteAsync(bytes, 0, bytes.Length);
+                    Debug.WriteLine(await request.GetResponseAsync());
+                }
+                return true;
             }
-            var response = (HttpWebResponse)request.GetResponse();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
         }
 
-        public static async Task RemoveDataAsync(string table, string values)
+        public static async Task<bool> DeleteDataAsync(string table, string values)
         {
-            WebRequest request = WebRequest.Create($"http://87.61.88.75:21875/girozillabackend/api/v1/Remove/{table}?{values}");
-            request.Method = "DELETE";
-            await request.GetResponseAsync();
+            try
+            {
+                WebRequest request = WebRequest.Create($"https://api.pyrocorestudios.dk/girozillabackend/v1/Remove/{table}?{values}");
+                request.Method = "DELETE";
+                Debug.WriteLine(await request.GetResponseAsync());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
         }
-
         public static async Task<string> GetDataAsync(string table)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://87.61.88.75:21875/girozillabackend/api/v1/All/{table}");
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-
-            using (HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                return await reader.ReadToEndAsync();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"https://api.pyrocorestudios.dk/girozillabackend/v1/All/{table}");
+                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
+                using (HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        using (StreamReader reader = new StreamReader(stream))
+                        {
+                            Debug.WriteLine(response.StatusDescription);
+                            return await reader.ReadToEndAsync();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return "";
             }
         }
     }

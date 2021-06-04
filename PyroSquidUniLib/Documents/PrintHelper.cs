@@ -95,11 +95,11 @@ namespace PyroSquidUniLib.Documents
         {
             try
             {
-                var price = 0.00;
+                var price = 0.00M;
 
-                foreach (ServiceProduct obj in productList.Items)
+                foreach (Product obj in productList.Items)
                 {
-                    price += double.Parse(obj.Price.Replace(',', '.'));
+                    price += obj.Pris;
                 }
 
                 priceTextBox.Text = price.ToString();
@@ -676,9 +676,7 @@ namespace PyroSquidUniLib.Documents
             {
                 var printPath = "";
 
-                var query = $"SELECT * FROM `customers` WHERE Customer_ID = {customerId};";
-
-                var rows = MySqlHelper.GetDataFromDatabase<Customer>(query, "ConnString");
+                var rows = Customer.CreateFromJson(ApiHelper.GetDataAsync("Customers").Result).Where(x => x.ID == customerId);
 
                 var logoFilePath = $@"{Environment.CurrentDirectory}\Assets\Company\";
 
@@ -749,11 +747,11 @@ namespace PyroSquidUniLib.Documents
 
                                                 //Name & Address
                                                 graphics.DrawString($"" +
-                                                    $"{row.Customer_FIRSTNAME} " +
-                                                    $"{row.Customer_LASTNAME}\n" +
-                                                    $"{row.Customer_ADDRESS}\n" +
-                                                    $"{row.Customer_ZIPCODE} " +
-                                                    $"{row.Customer_CITY}\n" +
+                                                    $"{row.Fornavn} " +
+                                                    $"{row.Efternavn}\n" +
+                                                    $"{row.Adresse}\n" +
+                                                    $"{row.Postnr} " +
+                                                    $"{row.By}\n" +
                                                     $"", arialFont, System.Drawing.Brushes.Black, point);
 
                                                 //Company Address Line
@@ -790,9 +788,9 @@ namespace PyroSquidUniLib.Documents
 
                                                             foreach (ServiceProduct obj in productList.Items)
                                                             {
-                                                                graphics.DrawString($"{obj.Name}", arialFont, System.Drawing.Brushes.Black, point);
+                                                                graphics.DrawString($"{obj.ProduktNavn}", arialFont, System.Drawing.Brushes.Black, point);
                                                                 point.X += 1350;
-                                                                graphics.DrawString($"{obj.Price}", arialFont, System.Drawing.Brushes.Black, point);
+                                                                graphics.DrawString($"{obj.Pris}", arialFont, System.Drawing.Brushes.Black, point);
                                                                 point.X = 60;
                                                                 point.Y += 55;
                                                             }
@@ -925,7 +923,7 @@ namespace PyroSquidUniLib.Documents
 
                             tempBmp.Dispose();
 
-                            PdfHelper.ConvertImageToPdf(printPath, outputPath, $@"\" + VariableManipulation.CorrectFileName($@"{rows[0].Customer_ADDRESS}_{num}_Faktura"), "Invoice", "Er dokumentet åbent?");
+                            PdfHelper.ConvertImageToPdf(printPath, outputPath, $@"\" + VariableManipulation.CorrectFileName($@"{rows.FirstOrDefault().Adresse}_{num}_Faktura"), "Invoice", "Er dokumentet åbent?");
 
                             FileSystemHelper.DeleteFolderAndContent(printPath);
                             break;
@@ -955,9 +953,7 @@ namespace PyroSquidUniLib.Documents
             {
                 var PrintPath = "";
 
-                var query = $"SELECT * FROM `customers` WHERE Customer_ID = {CustomerID};";
-
-                var rows = MySqlHelper.GetDataFromDatabase<Customer>(query, "ConnString");
+                var rows = Customer.CreateFromJson(ApiHelper.GetDataAsync("Customers").Result).Where(x => x.ID == CustomerID);
 
                 switch (string.IsNullOrWhiteSpace(imageFilePath))
                 {
@@ -1036,11 +1032,11 @@ namespace PyroSquidUniLib.Documents
 
                                                 //Name & Address
                                                 graphics.DrawString($"" +
-                                                    $"{row.Customer_FIRSTNAME} " +
-                                                    $"{row.Customer_LASTNAME}\n" +
-                                                    $"{row.Customer_ADDRESS}\n" +
-                                                    $"{row.Customer_ZIPCODE} " +
-                                                    $"{row.Customer_CITY}\n" +
+                                                    $"{row.Fornavn} " +
+                                                    $"{row.Efternavn}\n" +
+                                                    $"{row.Adresse}\n" +
+                                                    $"{row.Postnr} " +
+                                                    $"{row.By}\n" +
                                                     $"", arialFont, System.Drawing.Brushes.Black, point);
 
                                                 point.X = 710;
@@ -1128,9 +1124,9 @@ namespace PyroSquidUniLib.Documents
 
                                                             foreach (ServiceProduct obj in productList.Items)
                                                             {
-                                                                graphics.DrawString($"{obj.Name}", arialFont, System.Drawing.Brushes.Black, point);
+                                                                graphics.DrawString($"{obj.ProduktNavn}", arialFont, System.Drawing.Brushes.Black, point);
                                                                 point.X += 510;
-                                                                graphics.DrawString($"{obj.Price}", arialFont, System.Drawing.Brushes.Black, point);
+                                                                graphics.DrawString($"{obj.Pris}", arialFont, System.Drawing.Brushes.Black, point);
                                                                 point.X = 60;
                                                                 point.Y += 55;
                                                             }
@@ -1197,11 +1193,11 @@ namespace PyroSquidUniLib.Documents
                                                 point.Y = 1750;
 
                                                 graphics.DrawString($"" +
-                                                    $"{row.Customer_FIRSTNAME} " +
-                                                    $"{row.Customer_LASTNAME}\n" +
-                                                    $"{row.Customer_ADDRESS}\n" +
-                                                    $"{row.Customer_ZIPCODE} " +
-                                                    $"{row.Customer_CITY}\n" +
+                                                    $"{row.Fornavn} " +
+                                                    $"{row.Efternavn}\n" +
+                                                    $"{row.Adresse}\n" +
+                                                    $"{row.Postnr} " +
+                                                    $"{row.By}\n" +
                                                     $"", arialFont, System.Drawing.Brushes.Black, point);
 
                                                 switch (ContainPriceCheck.IsChecked == true)
@@ -1245,7 +1241,7 @@ namespace PyroSquidUniLib.Documents
 
                             tempBmp.Dispose();
 
-                            PdfHelper.ConvertImageToPdf(PrintPath, outputPath, $@"\" + VariableManipulation.CorrectFileName($@"{rows[0].Customer_ADDRESS}_{num}_Giro"), "Giro", "Er dokumentet åbent?");
+                            PdfHelper.ConvertImageToPdf(PrintPath, outputPath, $@"\" + VariableManipulation.CorrectFileName($@"{rows.FirstOrDefault().Adresse}_{num}_Giro"), "Giro", "Er dokumentet åbent?");
 
                             FileSystemHelper.DeleteFolderAndContent(PrintPath);
                             break;

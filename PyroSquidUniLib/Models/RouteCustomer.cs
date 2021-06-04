@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,23 @@ namespace PyroSquidUniLib.Models
 {
     public class RouteCustomer
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
+        public string Fornavn { get; set; }
+        public string Efternavn { get; set; }
+        public string Adresse { get; set; }
+        public int Postnr { get; set; }
+        public string By { get; set; }
+        public int Fejninger { get; set; }
+        public string Kommentar { get; set; }
+        public string Email { get; set; }
+        public string Mobil { get; set; }
+        public string Hjemme { get; set; }
+        public int KundeID { get; set; }
+        public int RuteID { get; set; }
 
-        public string Name { get; set; }
-
-        public string Address { get; set; }
-
-        public string ZipCode { get; set; }
-
-        public string City { get; set; }
+        public static RouteCustomer[] CreateFromJson(string json)
+        {
+            return JsonConvert.DeserializeObject<RouteCustomer[]>(json.Replace(" ID", "ID"));
+        }
     }
 }

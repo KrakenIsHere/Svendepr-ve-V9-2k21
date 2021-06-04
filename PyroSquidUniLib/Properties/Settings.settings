@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PyroSquidUniLib.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=localhost;user=root;Database=Svendepr_ve_V9_2k21;Port=3306;Password=toor;</Value>
+    </Setting>
+    <Setting Name="LastInvoiceNum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234567898765433</Value>
+    </Setting>
+    <Setting Name="CreditorNum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">12345678</Value>
+    </Setting>
+    <Setting Name="AddressLine" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fake Company+FakeRoad 69+486541 Fake City</Value>
+    </Setting>
+    <Setting Name="Regnr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234</Value>
+    </Setting>
+    <Setting Name="Accountnr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234567891</Value>
+    </Setting>
+    <Setting Name="License" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LicenseConnString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Server=87.61.88.75;user=remote;Database=Svendepr_ve_V9_2k21;Port=51398;Password=V#_xWL6_&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Server=87.61.88.75;user=remote;Database=Svendepr_ve_V9_2k21;Port=51398;Password=V#_xWL6_</Value>
+    </Setting>
+    <Setting Name="InvoiceMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Denne besked vil stå på+alle faktura printede regninger</Value>
+    </Setting>
+    <Setting Name="ShowChangelog" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowUpdatePromptOnStart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yes</Value>
+    </Setting>
+    <Setting Name="FtpUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FtpPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FtpHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

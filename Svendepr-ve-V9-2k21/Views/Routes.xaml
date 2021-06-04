@@ -215,6 +215,7 @@
                 CanUserDeleteRows="False" 
                 CanUserReorderColumns="False" 
                 CanUserAddRows="False" 
+                IsReadOnly="True"
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
                 Grid.Row="1"
@@ -380,17 +381,20 @@
                                                         DisplayMemberBinding="{Binding ID}"
                                                         Header="ID" Width="50"/>
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding Address}"
-                                                        Header="Address" />
+                                                        DisplayMemberBinding="{Binding Adresse}"
+                                                        Header="Adresse" />
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding Name}"
-                                                        Header="Navn" Width="110"/>
-                                                    <GridViewColumn
-                                                        DisplayMemberBinding="{Binding ZipCode}"
+                                                        DisplayMemberBinding="{Binding Postnr}"
                                                         Header="Postnr" />
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding City}"
+                                                        DisplayMemberBinding="{Binding By}"
                                                         Header="By" />
+                                                    <GridViewColumn
+                                                        DisplayMemberBinding="{Binding Fornavn}"
+                                                        Header="Fornavn" Width="110"/>
+                                                    <GridViewColumn
+                                                        DisplayMemberBinding="{Binding Efternavn}"
+                                                        Header="Efternavn" Width="110"/>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
@@ -536,17 +540,20 @@
                                                         DisplayMemberBinding="{Binding ID}"
                                                         Header="ID" Width="50"/>
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding Address}"
-                                                        Header="Address" />
+                                                        DisplayMemberBinding="{Binding Adresse}"
+                                                        Header="Adresse" />
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding Name}"
-                                                        Header="Navn" Width="110"/>
-                                                    <GridViewColumn
-                                                        DisplayMemberBinding="{Binding ZipCode}"
+                                                        DisplayMemberBinding="{Binding Postnr}"
                                                         Header="Postnr" />
                                                     <GridViewColumn
-                                                        DisplayMemberBinding="{Binding City}"
+                                                        DisplayMemberBinding="{Binding By}"
                                                         Header="By" />
+                                                    <GridViewColumn
+                                                        DisplayMemberBinding="{Binding Fornavn}"
+                                                        Header="Fornavn" Width="110"/>
+                                                    <GridViewColumn
+                                                        DisplayMemberBinding="{Binding Efternavn}"
+                                                        Header="Efternavn" Width="110"/>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
@@ -649,8 +656,8 @@
                                         materialDesign:HintAssist.Hint=" Fejnings nr" 
                                         Width="90"
                                         IsReadOnly="True"/>
-                                    <Button x:Name="PrevServiceButton" Content="&lt;" Margin="10,0,0,0" IsEnabled="True" Click="PrevServiceButton_Click"/>
-                                    <Button x:Name="NextServiceButton" Content=">" Margin="10,0,0,0" IsEnabled="True" Click="NextServiceButton_Click"/>
+                                    <Button x:Name="PrevServiceButton" Content="&lt;" Margin="10,0,0,0" IsEnabled="True" Click="PrevService_Click"/>
+                                    <Button x:Name="NextServiceButton" Content=">" Margin="10,0,0,0" IsEnabled="True" Click="NextService_Click"/>
                                 </StackPanel>
                             </StackPanel>
                         </GroupBox>

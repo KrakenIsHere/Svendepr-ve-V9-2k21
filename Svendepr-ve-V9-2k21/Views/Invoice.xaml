@@ -56,7 +56,7 @@
                     </ComboBox>
 
                     <StackPanel Orientation="Horizontal">
-
+                    
                         <CheckBox 
                             x:Name="UnpayedOnlyCheck" 
                             Margin="0,0,0,0" 
@@ -79,7 +79,7 @@
                             Width="138"
                             VerticalAlignment="Top" 
                             HorizontalAlignment="Left"/>
-
+                
                         <mah:NumericUpDown 
                             x:Name="InvoiceSearchYearValue"
                             Background="Transparent"
@@ -101,7 +101,7 @@
                     Margin="290,-110,0,0" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top">
-                    <materialDesign:PackIcon
+                        <materialDesign:PackIcon
                             Kind="Refresh"
                             Height="24"
                             Width="24" />
@@ -188,7 +188,7 @@
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
                 </StackPanel>
-
+                
                 <StackPanel Orientation="Vertical" Margin="10,0,0,0">
                     <TextBox
                         x:Name="CustomerInfoAddress"
@@ -212,7 +212,7 @@
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="182" />
                 </StackPanel>
-
+                
                 <StackPanel Orientation="Vertical" Margin="10,0,0,0">
                     <TextBox
                         x:Name="CustomerInfoMail"
@@ -238,7 +238,7 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-
+        
         <GroupBox Margin="10,179,10,246" Grid.RowSpan="3" Grid.ColumnSpan="3">
             <DataGrid 
                 Name="ServiceGrid" 
@@ -252,7 +252,7 @@
                 Grid.RowSpan="3" 
                 SelectedCellsChanged="ServiceGrid_SelectedCellsChanged"/>
         </GroupBox>
-
+        
         <GroupBox Grid.ColumnSpan="3" Margin="10,59,10,10" Grid.Row="2">
             <DataGrid 
                 Name="ProductGrid" 
@@ -311,20 +311,20 @@
                                     materialDesign:HintAssist.Hint="Beløb (Fx: 149.95)" 
                                     VerticalAlignment="Top" 
                                     Width="166"/>
-
+                                
                                 <CheckBox 
                                     Name="ContainPriceCheckBox" 
                                     Checked="ContainPriceCheckBox_Checked" 
                                     Unchecked="ContainPriceCheckBox_Unchecked" 
                                     Content="Includér pris i print" 
                                     Margin="30,10,0,0"/>
-
+                                
                                 <CheckBox 
                                     Name="TaxWithPriceCheckBox" 
                                     Content="Pris er med moms" 
                                     Margin="30,-1,0,0" 
                                     IsEnabled="False"/>
-
+                                
                                 <DatePicker 
                                     Name="PayDateSelect" 
                                     materialDesign:HintAssist.Hint="Betalings Dato" 
@@ -334,7 +334,7 @@
                                     Height="36" 
                                     Width="166" 
                                     FirstDayOfWeek="Monday"/>
-
+                                
                                 <CheckBox 
                                     Name="ContainPayDateCheckBox" 
                                     Content="Includér dato i print" 
@@ -358,16 +358,16 @@
                                         <ListView.View>
                                             <GridView x:Name="ProductsGrid">
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding ID}"
+                                                    DisplayMemberBinding="{Binding id}"
                                                     Header="ID" Width="50"/>
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding Name}"
+                                                    DisplayMemberBinding="{Binding Navn}"
                                                     Header="Navn" Width="110"/>
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding Price}"
+                                                    DisplayMemberBinding="{Binding Pris}"
                                                     Header="Pris" />
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding Description}"
+                                                    DisplayMemberBinding="{Binding Beskrivelse}"
                                                     Header="Beskrivelse" />
                                             </GridView>
                                         </ListView.View>
@@ -461,13 +461,13 @@
                                 Margin="10,30,0,0"
                                 Width="120"
                                 Content="Print Giro A5"
-                                Click="PrintGiroService_Click"/>
+                                Click="PrintService_Click"/>
                             <Button 
                                 x:Name="PrintStandartService" 
                                 Margin="10,30,0,0"
                                 Width="135"
                                 Content="Print Faktura A4"
-                                Click="PrintStandartService_Click"/>
+                                Click="PrintStandardService_Click"/>
                             <ComboBox
                                 Name="InvoiceDesignCombo" 
                                 HorizontalAlignment="Center"

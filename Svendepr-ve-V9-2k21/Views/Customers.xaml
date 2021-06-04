@@ -72,7 +72,7 @@
                         Margin="90,-20,0,0"
                         Width="180" 
                         Checked="ContainServicesToYearOnly_Checked"
-                        Unchecked="ContainServicesToYearOnly_Unchecked"
+                        Unchecked="ContainServicesToYearOnly_Checked"
                         IsChecked="True"/>
 
                     <Button
@@ -231,9 +231,7 @@
                                         Width="166"/>
                                     <ComboBox 
                                         Name="NewCustomersCity"
-                                        SelectionChanged="NewCustomersCity_SelectionChanged"
                                         TabIndex="3"
-                                        LostFocus="NewCustomersCity_LostFocus" 
                                         HorizontalAlignment="Center" 
                                         Height="37" 
                                         materialDesign:HintAssist.Hint="By" 
@@ -243,10 +241,8 @@
                                         IsEditable="True"/>
                                     <ComboBox 
                                         Name="NewCustomersZipCode" 
-                                        SelectionChanged="NewCustomersZipCode_SelectionChanged"
                                         TabIndex="4"
-                                        LostFocus="NewCustomersZipCode_LostFocus" 
-                                        PreviewTextInput="NewCustomersZipCode_PreviewTextInput" 
+                                        PreviewTextInput="NumbersOnly_PreviewTextInput" 
                                         HorizontalAlignment="Center" 
                                         Height="37" 
                                         materialDesign:HintAssist.Hint="Post nummer" 
@@ -291,7 +287,7 @@
                                         Name="NewCustomersServices" 
                                         TabIndex="8"
                                         MaxLength="2" 
-                                        PreviewTextInput="NewCustomersServices_PreviewTextInput" 
+                                        PreviewTextInput="NumbersOnly_PreviewTextInput" 
                                         HorizontalAlignment="Center" 
                                         Height="37" 
                                         TextWrapping="Wrap" 
@@ -328,7 +324,7 @@
                                             Content="Ingen Valgt" 
                                             IsSelected="True"/>
                                     </ComboBox>
-
+                                    
                                     <ComboBox 
                                         Name="NewCustomersMonth2" 
                                         TabIndex="11"
@@ -342,7 +338,7 @@
                                             Content="Ingen Valgt" 
                                             IsSelected="True"/>
                                     </ComboBox>
-
+                                
                                     <ComboBox 
                                         Name="NewCustomersMonth3" 
                                         TabIndex="12"
@@ -356,7 +352,7 @@
                                             Content="Ingen Valgt" 
                                             IsSelected="True"/>
                                     </ComboBox>
-
+                            
                                     <ComboBox 
                                         Name="NewCustomersMonth4" 
                                         TabIndex="13"
@@ -370,7 +366,7 @@
                                             Content="Ingen Valgt" 
                                             IsSelected="True"/>
                                     </ComboBox>
-
+                                    
                                     <ComboBox 
                                         Name="NewCustomersMonth5" 
                                         TabIndex="14"
@@ -384,7 +380,7 @@
                                             Content="Ingen Valgt"
                                             IsSelected="True"/>
                                     </ComboBox>
-
+                                    
                                     <ComboBox 
                                         Name="NewCustomersMonth6" 
                                         TabIndex="15"
@@ -527,22 +523,22 @@
                                         <ListView.View>
                                             <GridView x:Name="ProductGrid">
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding ID}"
+                                                    DisplayMemberBinding="{Binding id}"
                                                     Header="ID" Width="50"/>
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding Name}"
+                                                    DisplayMemberBinding="{Binding Navn}"
                                                     Header="Navn" Width="110"/>
                                                 <GridViewColumn
                                                     Header="Pris">
 
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <TextBox x:Name="ListViewPriceTextBox" Text="{Binding Price}" LostFocus="ListViewPriceTextBox_LostFocus"/>
+                                                            <TextBox x:Name="ListViewPriceTextBox" Text="{Binding Pris}" LostFocus="ListViewPriceTextBox_LostFocus"/>
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>
                                                 <GridViewColumn
-                                                    DisplayMemberBinding="{Binding Description}"
+                                                    DisplayMemberBinding="{Binding Beskrivelse}"
                                                     Header="Beskrivelse" />
                                             </GridView>
                                         </ListView.View>
@@ -629,13 +625,13 @@
                                 Margin="10,30,0,0" 
                                 Width="175" 
                                 Content="Opret og Print Giro A5" 
-                                Click="FinalAddAndPrintGiroService_Click"/>
+                                Click="FinalAddAndPrintService_Click"/>
                             <Button 
                                 x:Name="FinalAddAndPrintStandartService" 
                                 Margin="10,30,0,0" 
                                 Width="195" 
                                 Content="Opret og Print Faktura A4" 
-                                Click="FinalAddAndPrintStandartService_Click"/>
+                                Click="FinalAddAndPrintStandardService_Click"/>
                             <ComboBox 
                                 Name="InvoiceDesignCombo" 
                                 HorizontalAlignment="Center" 
@@ -666,6 +662,5 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        
     </Grid>
 </Page>

@@ -42,6 +42,9 @@
       <HintPath>..\packages\MySql.Data.8.0.19\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
@@ -93,14 +96,12 @@
     <Compile Include="Database\ApiHelper.cs" />
     <Compile Include="FileSystem\DefaultDirectories.cs" />
     <Compile Include="FileSystem\FileSystemHelper.cs" />
-    <Compile Include="Encryption\Hashing.cs" />
-    <Compile Include="FileSystem\FtpHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Documents\PdfHelper.cs" />
     <Compile Include="Documents\PrintHelper.cs" />
     <Compile Include="Extensions\PropertiesExtension.cs" />
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\License.cs" />
+    <Compile Include="Models\CustomerServiceData.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\RouteCustomer.cs" />
@@ -118,11 +119,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Verification\RegHelper.cs" />
-    <Compile Include="Database\MySqlHelper.cs" />
     <Compile Include="WPF Controls\TextboxExtrasHelper.cs" />
     <Compile Include="Extensions\VariableManipulation.cs" />
-    <Compile Include="Verification\VerifyLicense.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -137,9 +135,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Todo.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -150,22 +151,29 @@ namespace PyroSquidUniLib.Extensions
             }
         }
 
-        public static int[] GetIntegerValuesInColumnFromListView(ListView list)
+        public static int[] GetIntegerValuesInColumnFromListView<T>(ListView list)
         {
             try
             {
                 List<int> intList = new List<int>();
 
-                foreach (RouteCustomer item in list.Items)
+                foreach (T item in list.Items)
                 {
-                    intList.Add(int.Parse(item.ID));
+                    if (item != null)
+                    {
+                        Type t = item.GetType();
+
+                        PropertyInfo prop = t.GetProperty("ID");
+
+                        intList.Add(int.Parse(prop.GetValue(item).ToString()));
+                    }
                 }
 
                 return intList.ToArray();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex);
                 return null;
             }
         }

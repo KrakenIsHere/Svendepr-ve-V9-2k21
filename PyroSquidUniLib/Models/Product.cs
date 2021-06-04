@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,14 @@ namespace PyroSquidUniLib.Models
 {
     public class Product
     {
-        public int Product_ID { get; set; }
-        public string Product_NAME { get; set; }
-        public string Product_PRICE { get; set; }
-        public string Product_DESCRIPTION { get; set; }
+        public int id { get; set; }
+        public string Navn { get; set; }
+        public decimal Pris { get; set; }
+        public string Beskrivelse { get; set; }
+
+        public static Product[] CreateFromJson(string json)
+        {
+            return JsonConvert.DeserializeObject<Product[]>(json);
+        }
     }
 }
