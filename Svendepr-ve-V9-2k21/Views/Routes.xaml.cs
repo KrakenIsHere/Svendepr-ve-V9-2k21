@@ -1482,12 +1482,12 @@ namespace Svendepr_ve_V9_2k21.Views
                             $"City={city.By}";
 
                         //Json
-                        //data = $"{{\n" +
-                        //    $"\"id\": {city.id},\n" +
-                        //    $"\"ZipCode\": {city.Postnr},\n" +
-                        //    $"\"City\": \"{city.By}\"\n}}";
+                        data = $"{{\n" +
+                            $"\"id\": {city.id},\n" +
+                            $"\"ZipCode\": {city.Postnr},\n" +
+                            $"\"City\": \"{city.By}\"\n}}";
 
-                        if(await ApiHelper.PutDataAsync("City", data))
+                        if (await ApiHelper.JPutDataAsync("City", data))
                         {
                             Log.Information($"Successfully updated city data");
                         }
